@@ -1,0 +1,28 @@
+﻿@page
+@model MojoEvents.Pages.EditorModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Editor @Model.FestivalName</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/css/FestivalPage.css" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/FestivalPage.min.css" asp-append-version="true" />
+    </environment>
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+        <input type="text" id="Header" class="element header1" />
+    </main>
+</body>
+</html>
