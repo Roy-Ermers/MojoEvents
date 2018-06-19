@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Pacifico');
+:root {
+	--HeaderBackColor: #EDD569;
+	--HeaderBackColor2: #F18229;
+	--NavItemHover: #458955;
+	--SpecialNavItem: #E94128;
+}
+
+body {
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+}
+
+header {
+	background: linear-gradient(to left, var(--HeaderBackColor), var(--HeaderBackColor2));
+	margin: 0;
+	height: 85px;
+}
+
+header img {
+	position: absolute;
+}
+
+header h1 {
+	transform: rotate(-20deg);
+	display: inline-block;
+	margin: 0;
+	margin-top: 5px;
+	margin-left: 150px;
+	vertical-align: bottom;
+	font-family: 'Pacifico', sans-serif;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 2.5em;
+}
+
+nav {
+	background: linear-gradient(to left, var(--HeaderBackColor), var(--HeaderBackColor2));
+	position: sticky;
+	top: -1px;
+	height: 2.5em;
+	display: flex;
+}
+
+nav a {
+	font-size: 1.5em;
+	text-decoration: none;
+	color: #FFF;
+	padding: 0.5em;
+	flex: 1;
+	text-align: center;
+	vertical-align: middle;
+	line-height: .75em;
+	transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
+}
+
+nav a:not(.active) {
+	border-bottom: 1px dotted var(--NavItemHover);
+}
+
+nav a:hover {
+	color: black;
+	background-color: var(--NavItemHover);
+}
+
+nav a.special {
+	color: white;
+	opacity: 1;
+	background-color: var(--SpecialNavItem);
+}
+
+nav a.active {
+	background-color: white;
+	opacity: 1;
+	color: black;
+	box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 16%);
+}
+
+main {
+	min-height: 100vh;
+}

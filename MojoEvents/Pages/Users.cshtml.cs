@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MojoEvents.Pages
 {
-    public class UsersModel : PageModel
-    {
-        public DataSet Users { get; }
-        public void OnGet()
-        {
-           Users = Sql.Query("SELECT * FROM BackUser;");
-           
-        }
-    }
+	public class UsersModel : PageModel
+	{
+		public DataTableReader Users;
+		public void OnGet()
+		{
+			Users = Sql.Query("SELECT * FROM BackUser;");
+
+		}
+	}
 }

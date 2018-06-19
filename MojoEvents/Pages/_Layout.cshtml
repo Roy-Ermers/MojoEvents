@@ -13,7 +13,21 @@
     </environment>
 </head>
 <body>
+    <header>
+        <img src="https://www.mojo.nl/images/mojo-logo-triangle.svg">
+        <h1>Events</h1>
+    </header>
+    <nav>
+        <a asp-page="index" class="@(ViewData["CurrentPage"]=="home" ? "active" : "")">Home</a>
+        <a asp-page="festivals" class="@(ViewData["CurrentPage"]=="festivals" ? "active" : "")">Festivals</a>
+        <a asp-page="Users" class="@(ViewData["CurrentPage"]=="users" ? "active" : "")">Users</a>
+        <a asp-page="Settings" class="@(ViewData["CurrentPage"]=="settings" ? "active" : "")">Settings</a>
+        <a asp-page="Analytics" class="@(ViewData["CurrentPage"]=="analytics" ? "active" : "")">Analytics</a>
+        <a asp-page="Logout" class="special">Logout</a>
+    </nav>
+    <main>
         @RenderBody()
+        </main>
     <environment include="Development">
         <script src="~/js/site.js" asp-append-version="true"></script>
     </environment>
