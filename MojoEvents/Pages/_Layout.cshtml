@@ -2,6 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MojoEvents</title>
 
@@ -10,6 +11,7 @@
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
 </head>
 <body>
@@ -29,12 +31,8 @@
         @RenderBody()
         </main>
     <environment include="Development">
-        <script src="~/js/site.js" asp-append-version="true"></script>
+        <script src="~/js/site.js"></script>
     </environment>
-    <environment exclude="Development">
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
-
     @RenderSection("Scripts", required: false)
 </body>
 </html>
