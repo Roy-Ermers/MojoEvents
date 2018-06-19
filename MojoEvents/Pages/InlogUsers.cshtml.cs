@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MojoEvents.Pages
 {
-    public class _InlogUsersModel : PageModel
+    public class InlogUsersModel : PageModel
     {
         public void OnGet()
         {
