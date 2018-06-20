@@ -12,7 +12,7 @@
 			mode: "open"
 		});
 		let style = document.createElement("style");
-		style.textContent = ":host { display: block; height: 50vh; overflow: hidden; position: relative; } slot { overflow: hidden; position: relative;} ::slotted(*) { position: absolute; transition: opacity 250ms linear; display:block; width: 100%; }::slotted([center]) { top:-50%; } ::slotted([bottom]) {top: auto; bottom: 0%; }";
+		style.textContent = ":host { display: block; height: 50vh; overflow: hidden; position: relative; } slot { overflow: hidden; position: relative;} ::slotted(*) { position: absolute; transition: opacity 250ms linear; display:block; width: 100%; } ::slotted([center]) { top:-50%; } ::slotted([bottom]) {top: auto; bottom: 0%; }";
 		shadow.appendChild(style);
 		let slot = document.createElement("slot");
 		slot.id = "imgs";

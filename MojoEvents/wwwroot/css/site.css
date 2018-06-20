@@ -1,14 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Lato|Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Cabin|Pacifico');
 :root {
-	--HeaderBackColor: #EDD569;
-	--HeaderBackColor2: #F18229;
-	--NavItemHover: #458955;
-	--SpecialNavItem: #E94128;
+    --HeaderBackColor: #EDD569;
+    --HeaderBackColor2: #F18229;
+    --NavItemHover: #E94128;
+    --SpecialNavItem: #E94128;
+    --LogoColor: #3E5AB7;
 }
 
 body {
-	margin: 0;
-	font-family: 'Lato', sans-serif;
+    margin: 0;
+    font-family: 'Cabin', sans-serif;
 }
 
 header {
@@ -32,30 +33,37 @@ header h1 {
 	font-weight: normal;
 	font-style: italic;
 	font-size: 2.5em;
+    color: var(--LogoColor);
 }
 
 nav {
 	background: linear-gradient(to left, var(--HeaderBackColor), var(--HeaderBackColor2));
 	position: sticky;
 	top: -1px;
-	height: 2.5em;
+	height: 1.9em;
 	display: flex;
 }
 
-nav a {
-	font-size: 1.5em;
-	text-decoration: none;
-	color: #FFF;
-	padding: 0.5em;
-	flex: 1;
-	text-align: center;
-	vertical-align: middle;
-	line-height: .75em;
-	transition: background-color 100ms ease-in-out, color 100ms ease-in-out;
-}
+    nav a {
+        font-size: 1.2em;
+        text-decoration: none;
+        color: #FFF;
+        padding: 0.5em 1em;
+        flex: 0;
+        text-align: center;
+        vertical-align: middle;
+        line-height: .75em;
+        margin: 0 1px;
+        transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+    nav .spacer {
+        flex: 1;
+    }
 
 nav a:not(.active) {
-	border-bottom: 1px dotted var(--NavItemHover);
+	/*border-bottom: 1px dotted var(--NavItemHover);*/
 }
 
 nav a:hover {
@@ -67,9 +75,12 @@ nav a.special {
 	color: white;
 	opacity: 1;
 	background-color: var(--SpecialNavItem);
+    transition: margin-top 250ms ease-in-out;
 }
-
-nav a.active {
+    nav a.special:hover {
+        margin-top: -0.5em;
+    }
+        nav a.active {
 	background-color: white;
 	opacity: 1;
 	color: black;
