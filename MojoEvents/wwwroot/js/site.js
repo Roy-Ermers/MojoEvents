@@ -8,11 +8,15 @@
 	}
 	constructor() {
 		super();
-		let shadow = this.attachShadow({ mode: "open" });
-		shadow.innerHTML = "<slot></slot>";
+		let shadow = this.attachShadow({
+			mode: "open"
+		});
 		let style = document.createElement("style");
-		style.textContent = ":host { display: block; height: 25vh; } slot { position: absolute; transition: opacity 250ms ease-in-out; }";
+		style.textContent = ":host { display: block; height: 50vh; overflow: hidden; position: relative; } slot { overflow: hidden; position: relative;} ::slotted(*) { position: absolute; transition: opacity 250ms linear; display:block; width: 100%; }::slotted([center]) { top:-50%; } ::slotted([bottom]) {top: auto; bottom: 0%; }";
 		shadow.appendChild(style);
+		let slot = document.createElement("slot");
+		slot.id = "imgs";
+		shadow.appendChild(slot);
 	}
 	connectedCallback() {
 		this.Panels = Array.from(this.children);
@@ -21,7 +25,7 @@
 			timer = this.getAttribute("interval");
 
 		else this.timer = 1000;
-		this.currentIndex = 0;
+		this.currentIndex = -1;
 		window.setInterval(() => this.Roll(this.Panels), timer);
 		this.Roll(this.Panels);
 	}
