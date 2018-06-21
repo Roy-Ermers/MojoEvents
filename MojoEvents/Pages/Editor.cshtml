@@ -18,11 +18,22 @@
     </environment>
 </head>
 <body>
-    <header>
-
-    </header>
     <main>
-        <input type="text" id="Header" class="element header1" />
+        <form method="post" action="">
+            <table>
+                <tr><td><p>EventName</p></td><td><input required type="text" name="EventName" />    </td>
+                <tr><td><p>StartDate</p></td><td><input required type="date" name="StartDate" /></td>
+                <tr><td><p>EndDate</p></td><td><input required type="date" name="EndDate" />  </td>
+                <tr><td><p>Location</p></td><td><input required type="text" name="Location" />     </td>
+                <tr><td><p>EntryPrice</p></td><td><input required type="number" name="EntryPrice" /> </td>
+                <tr><td><p>YoutubeVideo</p></td><td><input type="text" name="YoutubeVideo" /> </td>
+                <tr><td><p>Image</p></td><td><input type="text" name="Image" />        </td>
+                <tr><td><p>Info</p></td><td><input required type="text" name="Info" />         </td>
+                <tr><td><p>Draft</p></td><td><input required type="checkbox" name="Draft" />    </td>
+                <tr><td><p>OwnerID</p></td><td><input required type="number" name="OwnerID" />    </td>
+            </table>
+            <input type="submit" />
+        </form>
     </main>
 </body>
 </html>

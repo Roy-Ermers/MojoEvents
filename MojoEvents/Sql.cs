@@ -11,9 +11,9 @@ namespace MojoEvents
     public static class Sql
     {
         #region Connection
-        const string _DBConnection = @"Server=185.56.145.130; Port=3306; Database=visumo1q_project; Uid=visumo1q_project; Pwd=L?um.Q=NZdmv; Encrypt=false;";
+        const string _DBConnection = @"Server=185.56.145.130; Port=3306; Database=visumo1q_project; Uid=visumo1q_project; Pwd=L?um.Q=NZdmv; Encrypt=false;convert zero datetime=True;";
         #endregion
-        public static MySqlDataReader Query(string query)
+        public static DataTableReader Query(string query)
         {
             try
             {
@@ -24,10 +24,11 @@ namespace MojoEvents
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         cmd.Prepare();
-                        MySqlDataReader rdr = cmd.ExecuteReader();
+                        MySqlDataAdapter Adapter = new MySqlDataAdapter(cmd);
+                        Adapter.Fill(ds);
                         con.Close();
                         if (ds.Tables.Count > 0)
-                            return rdr;
+                            return ds.CreateDataReader();
                         else
                             //table is empty
                             return null;

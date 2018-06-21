@@ -11,7 +11,7 @@ namespace MojoEvents.Pages
 {
     public class UsersModel : PageModel
     {
-        public MySqlDataReader Users;
+        public DataTableReader Users;
         public void OnGet()
         {
             var query = Sql.Query("SELECT * FROM BackUser;");

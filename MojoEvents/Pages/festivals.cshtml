@@ -1,20 +1,24 @@
 ﻿@page
 @model festivalsModel
 @{
+    ViewData["Title"] = "Festival";
+    ViewData["CurrentPage"] = "festival";
 }
 
 <h1>Festivals.</h1>
 <hr />
-<table>
-    <tr>
-        <th colspan="2">Festivals</th>
-    </tr>
-    @foreach(Festival festival in Model.GetFestivals())
-    {
-    <tr>
-        <td>@festival.EventName</td>
-        <td><input type="button" name="delete" value="@festival.EventName"/></td>
-    </tr>
+<form method="get">
+    <table>
+        <tr>
+            <th colspan="2">Festivals</th>
+        </tr>
+        @foreach (Festival festival in Model.GetFestivals())
+        {
+            <tr>
+                <td>@festival.EventName</td>
+                <td><button name="delete" value="@festival.EventName">Delete</button></td>
+            </tr>
 
-    }
-</table>
+        }
+    </table>
+</form>

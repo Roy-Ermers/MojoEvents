@@ -13,8 +13,8 @@ namespace MojoEvents.Pages
         public List<Festival> GetFestivals()
         {
             List<Festival> result = new List<Festival>();
-            var query = Sql.Query($"SELECT FestivalID FROM Festival WHERE OwnerID = {Request.Cookies["UserID"] ?? "null" }");
-            if (query!=null && query.FieldCount > 0)
+            var query = Sql.Query($"SELECT * FROM Festival;");
+            if (query.HasRows)
             {
                 while (query.Read())
                 {
