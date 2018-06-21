@@ -7,14 +7,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace MojoEvents.Pages
 {
-    public class InlogUsersModel : PageModel
+    public class ChartpageModel : PageModel
     {
-        public void OnPost()
+        public void OnGet()
         {
-            string name         = Request.Form["TXTnaam"];
-            string Password     = Request.Form["TXTww"];
 
-           
         }
     }
 }
