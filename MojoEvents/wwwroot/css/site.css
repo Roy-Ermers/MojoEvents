@@ -90,27 +90,6 @@ nav a.special {
 main {
 	min-height: 100vh;
 }
-#Inlogusers {
-    
-}
-#Inlogusers h1 {
-    position: absolute;
-    color: RGB(241,130,41);
-    left: 45%;
-}
-#Inlog_content {
-    position: absolute;
-    border: 2px solid RGB(241,130,41);
-    top: 25%;
-    left: 35%;
-    height: 200px;
-}
-#Inlog_table td{
-    text-align:center;
-    width: 200px;
-}
-}
-
 h1 {
     color: var(--HeaderBackColor2);
 }
