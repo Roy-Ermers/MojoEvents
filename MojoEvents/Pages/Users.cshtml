@@ -6,25 +6,29 @@
 }
 
 <h2>Sub-Users</h2>
+<hr />
 <p>Deze lijst bevat al uw sub-users, deze users kunnen vooraf bepaalde dingen aan uw festival veranderen.</p>
-<div id="sUsers">
-    <table>
-        <tr>
-            <th>
-                Gebruikers
-            </th>
-        </tr>
-        @while (Model.Users.Read())
-        {
-            <tr>
-                <td>
-                    @Model.Users.GetValue(1)
-                </td>
-                <td>
-                    
-                </td>
-            </tr>
-        }
-    </table>
-</div>
 
+ <table>
+    <tr>
+        <th colspan="2">
+            Gebruikers
+        </th>
+    </tr>
+    @while (Model.Users.Read())
+    {
+        <tr>
+            <td>
+                @Model.Users.GetValue(1)
+            </td>
+            <td>
+                <img src="~/Images/DropDownIcon.png" id="Target"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="DropMenu">
+                Verander festival
+            </td>
+        </tr>
+    }
+</table>
