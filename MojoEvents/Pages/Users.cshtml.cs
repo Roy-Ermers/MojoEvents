@@ -14,7 +14,11 @@ namespace MojoEvents.Pages
         public MySqlDataReader Users;
         public void OnGet()
         {
-           Users = Sql.Query("SELECT * FROM BackUser;");
+            var query = Sql.Query("SELECT * FROM BackUser;");
+            if (query != null && query.FieldCount > 0)
+            {
+                Users = query;
+            }
         }
     }
 }
