@@ -14,7 +14,7 @@ namespace MojoEvents.Pages
             string name         = Request.Form["TXTnaam"];
             string Password     = Request.Form["TXTww"];
 
-            
+           
         }
     }
 }
