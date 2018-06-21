@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Pacifico');
+:root {
+    --HeaderBackColor: #EDD569;
+    --HeaderBackColor2: #F18229;
+    --NavItemHover: #E94128;
+    --SpecialNavItem: #E94128;
+    --LogoColor: #3E5AB7;
+}
+
+body {
+    margin: 0;
+    font-family: 'Cabin', sans-serif;
+}
+
+header {
+	background: linear-gradient(to left, var(--HeaderBackColor), var(--HeaderBackColor2));
+	margin: 0;
+	height: 85px;
+}
+
+header img {
+	position: absolute;
+}
+
+header h1 {
+	transform: rotate(-20deg);
+	display: inline-block;
+	margin: 0;
+	margin-top: 5px;
+	margin-left: 150px;
+	vertical-align: bottom;
+	font-family: 'Pacifico', sans-serif;
+	font-weight: normal;
+	font-style: italic;
+	font-size: 2.5em;
+    color: var(--LogoColor);
+}
+
+nav {
+	background: linear-gradient(to left, var(--HeaderBackColor), var(--HeaderBackColor2));
+	position: sticky;
+	top: -1px;
+	height: 1.9em;
+	display: flex;
+}
+
+    nav a {
+        font-size: 1.2em;
+        text-decoration: none;
+        color: #FFF;
+        padding: 0.5em 1em;
+        flex: 0;
+        text-align: center;
+        vertical-align: middle;
+        line-height: .75em;
+        margin: 0 1px;
+        transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+    }
+    nav .spacer {
+        flex: 1;
+    }
+
+nav a:not(.active) {
+	/*border-bottom: 1px dotted var(--NavItemHover);*/
+}
+
+nav a:hover {
+	color: black;
+	background-color: var(--NavItemHover);
+}
+
+nav a.special {
+	color: white;
+	opacity: 1;
+	background-color: var(--SpecialNavItem);
+    transition: margin-top 250ms ease-in-out;
+}
+    nav a.special:hover {
+        margin-top: -0.5em;
+    }
+        nav a.active {
+	background-color: white;
+	opacity: 1;
+	color: black;
+	box-shadow: 0 -2px 2px 0 rgba(0, 0, 0, 16%);
+}
+
+main {
+	min-height: 100vh;
+}
