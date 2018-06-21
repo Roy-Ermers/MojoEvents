@@ -111,3 +111,40 @@ th {
 .DropMenu {
     display: none;
 }
+#Inlogusers div {
+    text-align: center;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,16%); 
+}
+#Inlogusers table {
+    height: 100px;
+}
+#Inlogusers #Ssubmit {
+    text-align: center;
+    border: 3px solid #F18229;
+    background-color: #F18229;
+    border-radius: 10px 10px;
+    color: white;
+}
+#Inlogusers h1 {
+    text-align: center;
+}
+#Inlogusers #Ssubmit:hover {
+    color: white;
+    background-color: var(--NavItemHover);
+    border: 3px solid var(--NavItemHover);
+}
+#Analyse_id button {
+    text-align: center;
+    border: 3px solid #F18229;
+    background-color: #F18229;
+    border-radius: 10px 10px;
+    color: white;
+    width: 10%;
+    margin-left: 45%;
+}
+#Analyse_id h1 {
+    text-align: center;
+}
