@@ -10,6 +10,7 @@ namespace MojoEvents.Pages
 
     public class festivalsModel : PageModel
     {
+        public string Message { get; private set; }
         public List<Festival> GetFestivals()
         {
             List<Festival> result = new List<Festival>();
@@ -24,9 +25,17 @@ namespace MojoEvents.Pages
             }
             result.Add(new Festival() { EventName = "(geen Festival gevonden)" });
             return result;
-            }
-        public void OnGet()
+        }
+
+        public void OnPost()
         {
+            if (!ModelState.IsValid)
+                return;
+            if (!string.IsNullOrEmpty(Request.Form["delete"]))
+            {
+                Sql.Query("DELETE FROM Festival WHERE FestivalID = " + Request.Form["delete"] + ";");
+                Message = "Festival verwijderd!";
+            }
         }
     }
 }

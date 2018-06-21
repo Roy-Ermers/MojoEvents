@@ -26,6 +26,11 @@ namespace MojoEvents
                 Sql.Query($"INSERT INTO Festival (FestivalName, StartDate, EndDate, Location, EntryPrice, YoutubeVideo, Image, Info, Draft, OwnerID) " +
                     $"VALUES ('{EventName ?? " "}','{StartDate.ToShortDateString()}','{EndDate.ToShortDateString()}','{Location ?? ""}',{EntryPrice},'{YoutubeVideo ?? " "}','{Image ?? " "}','{Info ?? " "}',{Draft},{OwnerID});");
             }
+            else
+            {
+                Sql.Query($"UPDATE Festival SET FestivalName = '{EventName ?? " "}', StartDate = '{StartDate.ToShortDateString()}',EndDate = '{EndDate.ToShortDateString()}',Location = '{Location ?? ""}',EntryPrice = {EntryPrice},YoutubeVideo = '{YoutubeVideo ?? " "}',Image = '{Image ?? " "}',Info = '{Info ?? " "}',Draft = {Draft},OwnerID = {OwnerID} WHERE FestivalID = {EventID});");
+
+            }
         }
         public static Festival Read(int ID)
         {
@@ -34,7 +39,7 @@ namespace MojoEvents
             if (query.HasRows)
             { 
                 Festival result = new Festival();
-                result.EventID = ID;
+                result.EventID = query.GetInt32(0);
                 result.EventName = query.GetString(1);
                 result.StartDate = query.GetDateTime(2);
                 result.EndDate = query.GetDateTime(3);

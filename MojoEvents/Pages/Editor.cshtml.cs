@@ -9,23 +9,38 @@ namespace MojoEvents.Pages
 {
     public class EditorModel : PageModel
     {
-        public string FestivalName { get; } = "New Festival";
+        public Festival Festival { get; set; }
+        public string FestivalName
+        {
+            get
+            {
+                return Festival?.EventName ?? "New Festival";
+            }
+        }
+
+        public void OnGet()
+        {
+            if (!string.IsNullOrEmpty(Request.Query["ID"]))
+            {
+                Festival = Festival.Read(int.Parse(Request.Query["ID"]));
+            }
+            else Festival = new Festival();
+        }
         public void OnPost()
         {
             if (!Request.HasFormContentType) return;
-            Festival result = new Festival
-            {
-                EventName = Request.Form["EventName"],
-                StartDate = DateTime.Parse(Request.Form["StartDate"]),
-                EndDate = DateTime.Parse(Request.Form["EndDate"]),
-                Location = Request.Form["Location"],
-                EntryPrice = decimal.Parse(Request.Form["EntryPrice"]),
-                YoutubeVideo = Request.Form["YoutubeVideo"],
-                Image = Request.Form["Image"],
-                Draft = string.IsNullOrEmpty(Request.Form["Draft"]),
-                OwnerID = int.Parse(Request.Form["OwnerID"])
-            };
-            result.Write();
+            Festival = Festival ?? new Festival();
+            Festival.EventName = Request.Form["EventName"];
+            Festival.StartDate = DateTime.Parse(Request.Form["StartDate"]);
+            Festival.EndDate = DateTime.Parse(Request.Form["EndDate"]);
+            Festival.Location = Request.Form["Location"];
+            Festival.EntryPrice = decimal.Parse(Request.Form["EntryPrice"]);
+            Festival.YoutubeVideo = Request.Form["YoutubeVideo"];
+            Festival.Image = Request.Form["Image"];
+            Festival.Draft = string.IsNullOrEmpty(Request.Form["Draft"]);
+            Festival.OwnerID = int.Parse(Request.Form["OwnerID"]);
+            Festival.Write();
+            Response.Redirect("./festivals", true);
         }
     }
 }

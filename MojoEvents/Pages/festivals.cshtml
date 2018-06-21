@@ -1,22 +1,28 @@
 ﻿@page
 @model festivalsModel
 @{
-    ViewData["Title"] = "Festival";
-    ViewData["CurrentPage"] = "festival";
+    ViewData["Title"] = "Festivallen";
+    ViewData["CurrentPage"] = "festivallen";
 }
 
-<h1>Festivals.</h1>
+<h1>Festivallen.</h1>
 <hr />
-<form method="get">
-    <table>
+<p>u ziet hieronder een lijst van al uw georganiseerde festivallen, klik op een festival om de data van dit festival te veranderen.</p>
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p class="warning">@Model.Message</p>
+}
+<form method="post">
+    <table class="interactive">
         <tr>
-            <th colspan="2">Festivals</th>
+            <th>Festivallen</th>
+            <th><a asp-page="./Editor" class="add-new">🞥</a></th>
         </tr>
         @foreach (Festival festival in Model.GetFestivals())
         {
             <tr>
-                <td>@festival.EventName</td>
-                <td><button name="delete" value="@festival.EventName">Delete</button></td>
+                <td><a asp-page="./Editor" asp-route-id="@festival.EventID">@festival.EventName</a></td>
+                <td><button name="delete" class="delete" value="@festival.EventID">Verwijder</button></td>
             </tr>
 
         }
