@@ -12,8 +12,8 @@
     @foreach(Festival festival in Model.GetFestivals())
     {
     <tr>
-        <td>festival.Name</td>
-        <td><input type="button" name="delete" value="festival.Name"/></td>
+        <td>@festival.EventName</td>
+        <td><input type="button" name="delete" value="@festival.EventName"/></td>
     </tr>
 
     }
