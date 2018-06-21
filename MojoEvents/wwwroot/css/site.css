@@ -77,7 +77,7 @@ nav a.special {
 	background-color: var(--SpecialNavItem);
     transition: margin-top 250ms ease-in-out;
 }
-    nav a.special:hover {
+    nav a:hover {
         margin-top: -0.5em;
     }
         nav a.active {
