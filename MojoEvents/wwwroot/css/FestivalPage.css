@@ -1,0 +1,14 @@
+﻿header {
+    height: 100vh;
+    background: linear-gradient(top, )
+}
+main {
+    min-height: 100vh;
+}
+.element  { 
+    border: none;
+    background-color: whitesmoke;
+}
+.element.header1 {
+    font-size: 1.5em;
+}

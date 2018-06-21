@@ -1,0 +1,12 @@
+﻿@page
+@model MojoEvents.Pages.UsersModel
+@{
+    ViewData["Title"] = "Users";
+    ViewData["CurrentPage"] = "users";
+}
+
+<h2>Users</h2>
+@while(Model.Users.Read())
+{
+    <p>@Model.Users.GetValue(0)</p>
+}
