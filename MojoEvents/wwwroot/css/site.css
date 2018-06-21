@@ -109,3 +109,12 @@ main {
     text-align:center;
     width: 200px;
 }
+}
+
+h1 {
+    color: var(--HeaderBackColor2);
+}
+hr{ 
+    max-width: 25vw;
+    border: 1px solid var(--LogoColor);
+}
