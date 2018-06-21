@@ -13,5 +13,9 @@ namespace MojoEvents.Pages
         {
 
         }
+        protected void onchange(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
