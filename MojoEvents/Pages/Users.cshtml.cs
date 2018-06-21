@@ -10,11 +10,10 @@ namespace MojoEvents.Pages
 {
     public class UsersModel : PageModel
     {
-        public DataSet Users { get; }
+        public DataTableReader Users;
         public void OnGet()
         {
            Users = Sql.Query("SELECT * FROM BackUser;");
-           
         }
     }
 }

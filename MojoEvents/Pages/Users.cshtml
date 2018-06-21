@@ -5,8 +5,26 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 
-<h2>Users</h2>
-@while(Model.Users.Read())
-{
-    <p>@Model.Users.GetValue(0)</p>
-}
+<h2>Sub-Users</h2>
+<p>Deze lijst bevat al uw sub-users, deze users kunnen vooraf bepaalde dingen aan uw festival veranderen.</p>
+<div id="sUsers">
+    <table>
+        <tr>
+            <th>
+                Gebruikers
+            </th>
+        </tr>
+        @while (Model.Users.Read())
+        {
+            <tr>
+                <td>
+                    @Model.Users.GetValue(1)
+                </td>
+                <td>
+                    
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
