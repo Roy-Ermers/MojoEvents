@@ -1,0 +1,37 @@
+﻿@page
+@model MojoEvents.Pages.InlogUsersModel
+@{
+    ViewData["Title"] = "InlogUsers";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<div id="Inlogusers">
+    <h1>InlogUsers</h1>
+    <div id="Inlog_content">
+        <form method="post" action="~/Pages/InlogUsers.cshtml">
+            <table id="Inlog_table">
+                <tr>
+                    <td>
+                        Name:
+                    </td>
+                    <td>
+                        <input id="TXTnaam" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Password:
+                    </td>
+                    <td>
+                        <input id="TXTww" type="password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="Ssubmit" type="submit" value="verstuur" />
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </div>
+    </div>

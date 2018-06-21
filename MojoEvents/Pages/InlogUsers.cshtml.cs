@@ -9,13 +9,12 @@ namespace MojoEvents.Pages
 {
     public class InlogUsersModel : PageModel
     {
-        public void OnGet()
+        public void OnPost()
         {
+            string name         = Request.Form["TXTnaam"];
+            string Password     = Request.Form["TXTww"];
 
-        }
-        protected void onchange(object sender, EventArgs e)
-        {
-           
+            
         }
     }
 }

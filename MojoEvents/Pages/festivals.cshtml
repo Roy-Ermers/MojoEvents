@@ -1,0 +1,20 @@
+﻿@page
+@model festivalsModel
+@{
+}
+
+<h1>Festivals.</h1>
+<hr />
+<table>
+    <tr>
+        <th colspan="2">Festivals</th>
+    </tr>
+    @foreach(Festival festival in Model.GetFestivals())
+    {
+    <tr>
+        <td>festival.Name</td>
+        <td><input type="button" name="delete" value="festival.Name"/></td>
+    </tr>
+
+    }
+</table>
