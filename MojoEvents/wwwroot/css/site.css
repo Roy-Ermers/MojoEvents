@@ -106,8 +106,7 @@ table {
     margin-left: 25%;
 }
 th {
-    background: linear-gradient(to left, var(--HeaderBackColor), var(--HeaderBackColor2));
-    background-color: #FFAF0E;
+    background: var(--HeaderBackColor2);
 }
 .DropMenu {
     display: none;
