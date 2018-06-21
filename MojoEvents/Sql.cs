@@ -6,14 +6,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MojoEvents.Pages
+namespace MojoEvents
 {
     public static class Sql
     {
         #region Connection
         const string _DBConnection = @"Server=185.56.145.130; Port=3306; Database=visumo1q_project; Uid=visumo1q_project; Pwd=L?um.Q=NZdmv; Encrypt=false;";
         #endregion
-        public static DataTableReader Query(string query)
+        public static MySqlDataReader Query(string query)
         {
             try
             {
@@ -24,11 +24,10 @@ namespace MojoEvents.Pages
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         cmd.Prepare();
-                        MySqlDataAdapter Adapter = new MySqlDataAdapter(cmd);
-                        Adapter.Fill(ds);
+                        MySqlDataReader rdr = cmd.ExecuteReader();
                         con.Close();
                         if (ds.Tables.Count > 0)
-                            return ds.CreateDataReader();
+                            return rdr;
                         else
                             //table is empty
                             return null;

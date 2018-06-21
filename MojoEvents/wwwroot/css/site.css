@@ -90,3 +90,11 @@ nav a.special {
 main {
 	min-height: 100vh;
 }
+
+h1 {
+    color: var(--HeaderBackColor2);
+}
+hr{ 
+    max-width: 25vw;
+    border: 1px solid var(--LogoColor);
+}
