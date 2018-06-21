@@ -149,3 +149,6 @@ th {
 #Analyse_id h1 {
     text-align: center;
 }
+#index_text h1, #index_text p{
+    text-align: center;
+}

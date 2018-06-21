@@ -26,7 +26,7 @@
         <a asp-page="Settings" class="@(ViewData["CurrentPage"]=="settings" ? "active" : "")">Settings</a>
         <a asp-page="Analytics" class="@(ViewData["CurrentPage"]=="analytics" ? "active" : "")">Analytics</a>
         <div class="spacer"></div>
-        <a asp-page="Logout" class="special">Logout</a>
+        <a asp-page="Login" class="special">Logout</a>
     </nav>
     <main>
         @RenderBody()

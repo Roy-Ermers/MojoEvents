@@ -1,6 +1,8 @@
 ﻿@page
 @model festivalsModel
 @{
+    ViewData["Title"] = "festivals";
+    ViewData["CurrentPage"] = "festivals";
 }
 
 <h1>Festivals.</h1>
@@ -9,7 +11,7 @@
     <tr>
         <th colspan="2">Festivals</th>
     </tr>
-    @foreach(Festival festival in Model.GetFestivals())
+    @foreach (Festival festival in Model.GetFestivals())
     {
     <tr>
         <td>@festival.EventName</td>
