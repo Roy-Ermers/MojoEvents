@@ -12,3 +12,33 @@ main {
 .element.header1 {
     font-size: 1.5em;
 }
+#video_foto {
+    position: absolute;
+    background: linear-gradient(to top, #808080, #FFFFFFF);
+    height: 100%;
+    width: 50%;
+}
+    #alleinfo {
+        margin-left: 50%;
+    }
+#betaling {
+    background-color: cornflowerblue;
+    margin-left: 50%;
+    margin-top: 10%;
+    width: 50%;
+    height:;
+}
+#alleinfo> p ~ input {
+    border: none;
+}
+#Checklist {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    box-shadow: 0 0 16px black;
+    border-radius: 10px 10px;
+}
+#Checklist~input{
+    margin: 10%;
+}
+

@@ -20,20 +20,31 @@
 <body>
     <main>
         <form method="post" action="">
-            <table>
-                <tr><td><p>EventName</p></td><td><input required type="text" name="EventName" value="@Model.FestivalName" />    </td>
-                <tr><td><p>StartDate</p></td><td><input required type="date" name="StartDate" value="@Model.Festival?.StartDate.ToShortDateString()" /></td>
-                <tr><td><p>EndDate</p></td><td><input required type="date" name="EndDate" value="@Model.Festival?.EndDate.ToShortDateString()"/>  </td>
-                <tr><td><p>Location</p></td><td><input required type="text" name="Location" value="@Model.Festival?.Location"/>     </td>
-                <tr><td><p>EntryPrice</p></td><td><input required type="number" name="EntryPrice" value="@Model.Festival?.EntryPrice"/> </td>
-                <tr><td><p>YoutubeVideo</p></td><td><input type="text" name="YoutubeVideo" value="@Model.Festival?.YoutubeVideo"/> </td>
-                <tr><td><p>Image</p></td><td><input type="text" name="Image" value="@Model.Festival?.Image"/>        </td>
-                <tr><td><p>Info</p></td><td><input required type="text" name="Info" value="@Model.Festival?.Info"/>         </td>
-                <tr><td><p>Draft</p></td><td><input required type="checkbox" name="Draft" value="@Model.Festival?.Draft"/>    </td>
-                <tr>
-                    <td><p>OwnerID</p></td><td><input required type="number" name="OwnerID" value="@Model.Festival?.OwnerID"/>    </td>
-            </table>
-            <input type="submit" />
+            <div id="video_foto">
+                <p>YoutubeVideo</p><input  type="text" name="YoutubeVideo" value="@Model.Festival?.YoutubeVideo" />
+                <p>Image</p><input type="text" name="Image" value="@Model.Festival?.Image" />
+            </div>
+            <div id="alleinfo">
+                <p>EventName</p><input required type="text" name="EventName" value="@Model.FestivalName" />
+                <p>Info</p><input required type="text" name="Info" value="@Model.Festival?.Info" />
+
+                <p>StartDate</p><input required type="date" name="StartDate" value="@Model.Festival?.StartDate.ToShortDateString()" />
+                <p>EndDate</p><input required type="date" name="EndDate" value="@Model.Festival?.EndDate.ToShortDateString()" />
+                <p>Location</p><input required type="text" name="Location" value="@Model.Festival?.Location" />
+                               
+            </div>
+            <div id="betaling">
+            <input required type="number" name="EntryPrice" value="@Model.Festival?.EntryPrice" />
+            </div>
+            <div id="Checklist">
+                <p>Draft</p><input required type="checkbox" name="Draft" value="@Model.Festival?.Draft" />
+                <p>OwnerID</p><input required type="number" name="OwnerID" value="@Model.Festival?.OwnerID" /><br />
+
+                <input type="submit" />
+            </div>
+            
+
+            
         </form>
     </main>
 </body>
