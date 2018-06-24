@@ -1,44 +1,115 @@
 ﻿header {
     height: 100vh;
-    background: linear-gradient(top, );
-}
-main {
-    min-height: 100vh;
-}
-.element  { 
-    border: none;
-    background-color: whitesmoke;
-}
-.element.header1 {
-    font-size: 1.5em;
-}
-#video_foto {
-    position: absolute;
-    background: linear-gradient(to top, #808080, #FFFFFFF);
-    height: 100%;
-    width: 50%;
-}
-    #alleinfo {
-        margin-left: 50%;
-    }
-#betaling {
-    background-color: cornflowerblue;
-    margin-left: 50%;
-    margin-top: 10%;
-    width: 50%;
-    height:;
-}
-#alleinfo> p ~ input {
-    border: none;
-}
-#Checklist {
-    position: absolute;
-    right: 5%;
-    top: 5%;
-    box-shadow: 0 0 16px black;
-    border-radius: 10px 10px;
-}
-#Checklist~input{
-    margin: 10%;
 }
 
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+main {
+    margin: 0;
+}
+
+form {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+}
+
+    form > * {
+        flex: 1;
+        position:relative;
+    }
+
+.element {
+    border: none;
+    text-align: center;
+    transition: background-color 100ms ease-in-out;
+    outline: none;
+    background-color: #F9F9F9;
+}
+
+    .element:hover {
+        background-color: #EEE;
+    }
+
+.header1 {
+    max-width: 100%;
+    text-wrap: normal;
+    display: block;
+    font-size: 5em;
+    margin-bottom: 25px;
+}
+
+.Info {
+    resize: vertical;
+    max-width: calc(100% - 15px);
+    width: calc(100% - 15px);
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.bar {
+    position: absolute;
+    left: -10px;
+    bottom: 0;
+    height: 5vh;
+    width: calc(100% + 10px);
+    background-color: rgb(0, 203, 255);
+}
+.media {
+    position: relative;
+    box-shadow: 2px 0 6px 0 rgba(0,0,0,16%);
+    margin-right: 10px;
+    background: linear-gradient(to top, #808080, #FFF);
+}
+
+    .media:hover .upload {
+        opacity: 1;
+    }
+
+    .media .upload {
+        display: flex;
+        position: absolute;
+        top: calc(50% - 75px / 2 + 10px);
+        left: calc(50% - 60px);
+        height: 50px;
+        width: 100px;
+        padding: 5px;
+        background-color: rgba(0,0,0,25%);
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 250ms ease-in-out;
+    }
+
+
+        .media .upload > button {
+            padding: 0;
+            flex: 1;
+            height: 100%;
+            background-color: rgba(0,0,0,15%);
+            border-radius: 100%;
+            border: none;
+            vertical-align: middle;
+            outline: none;
+            transition: background-color 200ms ease-in-out;
+        }
+            .media .upload > button:hover {
+                background-color: rgba(0,0,0,25%);
+            }
+            .media .upload > button > svg {
+                height: 50%;
+            }
+
+.panel {
+    position: fixed;
+    min-height: 250px;
+    min-width: 100px;
+    box-shadow: 2px 2px 12px 0 rgba(0,0,0,25%);
+    background-color: whitesmoke;
+    border-radius: 10px;
+    top: 2vh;
+    left: 2vh;
+}

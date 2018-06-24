@@ -20,31 +20,42 @@
 <body>
     <main>
         <form method="post" action="">
-            <div id="video_foto">
-                <p>YoutubeVideo</p><input  type="text" name="YoutubeVideo" value="@Model.Festival?.YoutubeVideo" />
-                <p>Image</p><input type="text" name="Image" value="@Model.Festival?.Image" />
+            <div class="media">
+                <div class="upload">
+                    <button id="video" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 23 23" version="1.1">
+                            <g id="surface1">
+                                <path fill="#FFF" d="M 20.207031 11.855469 L 6.902344 5.261719 C 6.5 5.058594 6.019531 5.078125 5.632813 5.3125 C 5.246094 5.542969 5.015625 5.957031 5.015625 6.402344 L 5.015625 19.601563 C 5.015625 20.042969 5.246094 20.457031 5.632813 20.6875 C 5.84375 20.816406 6.078125 20.878906 6.316406 20.878906 C 6.519531 20.878906 6.71875 20.832031 6.902344 20.742188 L 20.210938 14.140625 C 20.648438 13.925781 20.925781 13.484375 20.925781 13 C 20.925781 12.515625 20.644531 12.074219 20.207031 11.855469 Z "></path>
+                            </g>
+                        </svg>
+                    </button>
+                    <button id="picture" type="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 298.73 298.73" style="enable-background:new 0 0 298.73 298.73;" xml:space="preserve"><g>
+                        <path d="M264.959,9.35H33.787C15.153,9.35,0,24.498,0,43.154v212.461c0,18.634,15.153,33.766,33.787,33.766   h231.171c18.634,0,33.771-15.132,33.771-33.766V43.154C298.73,24.498,283.593,9.35,264.959,9.35z M193.174,59.623   c18.02,0,32.634,14.615,32.634,32.634s-14.615,32.634-32.634,32.634c-18.025,0-32.634-14.615-32.634-32.634   S175.149,59.623,193.174,59.623z M254.363,258.149H149.362H49.039c-9.013,0-13.027-6.521-8.964-14.566l56.006-110.93   c4.058-8.044,11.792-8.762,17.269-1.605l56.316,73.596c5.477,7.158,15.05,7.767,21.386,1.354l13.777-13.951   c6.331-6.413,15.659-5.619,20.826,1.762l35.675,50.959C266.487,252.16,263.376,258.149,254.363,258.149z" fill="#FFFFFF" /></g></svg>
+                    </button>
+                </div>
+                <input type="hidden" name="YoutubeVideo" value="@Model.Festival?.YoutubeVideo" />
+                <input type="hidden" name="Image" value="@Model.Festival?.Image" />
             </div>
-            <div id="alleinfo">
-                <p>EventName</p><input required type="text" name="EventName" value="@Model.FestivalName" />
-                <p>Info</p><input required type="text" name="Info" value="@Model.Festival?.Info" />
+            <div>
+                <input required type="text" name="EventName" value="@Model.FestivalName" class="element header1"/>
+                <textarea required name="Info" value="@Model.Festival?.Info" class="element Info"></textarea>
 
-                <p>StartDate</p><input required type="date" name="StartDate" value="@Model.Festival?.StartDate.ToShortDateString()" />
-                <p>EndDate</p><input required type="date" name="EndDate" value="@Model.Festival?.EndDate.ToShortDateString()" />
-                <p>Location</p><input required type="text" name="Location" value="@Model.Festival?.Location" />
-                               
+                <p>Het festival is van <input required type="date" name="StartDate" value="@Model.Festival?.StartDate.ToString("yyyy-MM-dd")"/> tot en met <input required type="date" name="EndDate" value="@Model.Festival?.EndDate.ToString("yyyy-MM-dd")" /> op <input required type="text" name="Location" value="@Model.Festival?.Location" placeholder="plaats" /> 
+
+                <div class="bar">
+                    <input required type="number" name="EntryPrice" value="@Model.Festival?.EntryPrice" />
+                </div>
             </div>
-            <div id="betaling">
-            <input required type="number" name="EntryPrice" value="@Model.Festival?.EntryPrice" />
-            </div>
-            <div id="Checklist">
-                <p>Draft</p><input required type="checkbox" name="Draft" value="@Model.Festival?.Draft" />
+            <div class="panel">
+                <p>Draft</p><input required type="checkbox" name="Draft" checked="@Model.Festival?.Draft" />
                 <p>OwnerID</p><input required type="number" name="OwnerID" value="@Model.Festival?.OwnerID" /><br />
 
                 <input type="submit" />
             </div>
-            
 
-            
+
+
         </form>
     </main>
 </body>
