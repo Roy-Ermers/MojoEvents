@@ -46,7 +46,7 @@ namespace MojoEvents
                 result.EntryPrice = query.GetDecimal(4);
                 result.YoutubeVideo = query.GetValue(5).ToString();
                 result.Image = query.GetValue(6).ToString();
-                result.Info = query.GetString(7);
+                result.Info = query.GetValue(7)?.ToString();
                 result.Location = query.GetString(8);
                 result.Draft = query.GetBoolean(9);
                 result.OwnerID = query.GetInt32(10);

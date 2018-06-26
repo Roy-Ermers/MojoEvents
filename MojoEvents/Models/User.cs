@@ -13,7 +13,7 @@ namespace MojoEvents.Models
         public int OwnerID { get; set; }
         public static User Read(int ID)
         {
-            var query = Sql.Query($"SELECT * FROM BacKUser WHERE UserID = {ID};");
+            var query = Sql.Query($"SELECT * FROM BackUser WHERE UserID = {ID};");
             query.Read();
             if (query.HasRows)
             {
@@ -21,7 +21,7 @@ namespace MojoEvents.Models
                 user.UserID = query.GetInt32(0);
                 user.UserName = query.GetString(1);
                 user.Password = (byte[])query.GetValue(2);
-                user.OwnerID = query.GetInt32(4);
+                user.OwnerID = query.GetInt32(3);
                 return user;
             }
             else
@@ -33,7 +33,7 @@ namespace MojoEvents.Models
         {
             if (Cache != null && Cache.Count > 0 && LastUpdated > DateTime.Now.AddMinutes(5)) 
                 return Cache;
-            var query = Sql.Query($"SELECT * FROM BacKUser;");
+            var query = Sql.Query($"SELECT * FROM BackUser;");
             query.Read();
             if (query.HasRows)
             {

@@ -18,14 +18,10 @@
     </tr>
     @if (Model.Users != null)
     {
-        @while (Model.Users.Read())
+        @for(int i = 0; i < Model.Users.Count; i++)
         {
             <tr>
-                @for (int i = 0; i < Model.Users.FieldCount; i++)
-                {
-                    <td>@Model.Users.GetValue(i);</td>
-
-                }               
+                    <td>@Model.Users[i].UserName</td>
                 <td class="DropMenu">
                     <img src="~/Images/DropDownIcon.png" id="Target" />
                     <div>

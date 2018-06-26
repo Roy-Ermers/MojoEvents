@@ -5,34 +5,38 @@
     ViewData["HideNav"] = true;
     Layout = "~/Pages/_Layout.cshtml";
 }
-
-<div id="Inlogusers">
-    <h1>Inloggen</h1>
-    <div>
-        <form method="post" action="~/Pages/InlogUsers.cshtml">
-            <table>
-                <tr>
-                    <td>
-                        Name:
-                    </td>
-                    <td>
-                        <input id="TXTnaam" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Password:
-                    </td>
-                    <td>
-                        <input id="TXTww" type="password" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <input id="Ssubmit" type="submit" value="Inloggen" />
-                    </td>
-                </tr>
-            </table>
-        </form>
-        </div>
-    </div>
+<h1>Inloggen</h1>
+<hr />
+@if (ViewData["Message"]!=null)
+{
+    <p class="warning">@ViewData["Message"]</p>
+}
+<form method="post" action="~/Pages/InlogUsers.cshtml">
+    <table>
+        <tr>
+            <th>Login</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>
+                Gebruikersnaam:
+            </td>
+            <td>
+                <input id="UserName" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Wachtwoord:
+            </td>
+            <td>
+                <input id="Password" type="password" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Inloggen" />
+            </td>
+        </tr>
+    </table>
+</form>
