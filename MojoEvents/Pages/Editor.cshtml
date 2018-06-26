@@ -10,11 +10,14 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Editor @Model.FestivalName</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <environment include="Development">
         <link rel="stylesheet" href="~/css/FestivalPage.css" />
+        <script src="~/js/editor.js" defer></script>
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="~/css/FestivalPage.min.css" asp-append-version="true" />
+        <script src="~/js/editor.min.js"></script>
     </environment>
 </head>
 <body>
@@ -36,15 +39,16 @@
                 </div>
                 <input type="hidden" name="YoutubeVideo" value="@Model.Festival?.YoutubeVideo" />
                 <input type="hidden" name="Image" value="@Model.Festival?.Image" />
+                <input type="file" id="fileUpload" />
             </div>
             <div>
                 <input required type="text" name="EventName" value="@Model.FestivalName" class="element header1"/>
-                <textarea required name="Info" value="@Model.Festival?.Info" class="element Info"></textarea>
+                <textarea required name="Info" class="element Info">@Model.Festival?.Info</textarea>
 
                 <p>Het festival is van <input required type="date" name="StartDate" value="@Model.Festival?.StartDate.ToString("yyyy-MM-dd")"/> tot en met <input required type="date" name="EndDate" value="@Model.Festival?.EndDate.ToString("yyyy-MM-dd")" /> op <input required type="text" name="Location" value="@Model.Festival?.Location" placeholder="plaats" /> 
 
                 <div class="bar">
-                    <input required type="number" name="EntryPrice" value="@Model.Festival?.EntryPrice" />
+                    <input required type="number" pattern="^\d+(?:\.\d{1,2})?$" name="EntryPrice" value="@Model.Festival?.EntryPrice" />
                 </div>
             </div>
             <div class="panel">
@@ -53,10 +57,13 @@
 
                 <input type="submit" />
             </div>
-
-
-
         </form>
+        <dialog id="VideoSearch">
+            <h1>Zoeken naar video.</h1>
+            <input type="search" id="SearchQuery" />
+            <div id="SearchResults" class="video">
+            </div>
+        </dialog>
     </main>
 </body>
 </html>

@@ -124,7 +124,7 @@ table {
     table tr:not(:first-child) {
         border-collapse: collapse;
         display: flex;
-        align-content: stretch;
+        align-items: center;
         margin-top: 0;
         margin: 12px 10px;
         box-shadow: 0 0 6px 0 rgba(0, 0, 0, 16%);
@@ -187,34 +187,10 @@ table {
     color: crimson;
 }
 
-#Inlogusers div {
-    text-align: center;
-    width: 30%;
-    margin-left: 35%;
-    margin-right: 35%;
-    box-shadow: 0 0 6px 0 rgba(0,0,0,16%);
-}
-
-#Inlogusers table {
-    height: 100px;
-}
-
-#Inlogusers #Ssubmit {
-    text-align: center;
-    border: 3px solid #F18229;
-    background-color: #F18229;
-    border-radius: 10px 10px;
-    color: white;
-}
-
-#Inlogusers h1 {
-    text-align: center;
-}
-
-#Inlogusers #Ssubmit:hover {
-    color: white;
-    background-color: var(--NavItemHover);
-    border: 3px solid var(--NavItemHover);
+input:not([type=button]):not([type=submit]) {
+    border: 2px solid var(--LogoColor);
+    padding: 5px 25px;
+    border-radius: 10px;
 }
 
 button {
