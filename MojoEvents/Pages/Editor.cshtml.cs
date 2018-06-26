@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -18,13 +19,16 @@ namespace MojoEvents.Pages
             }
         }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (Request.HttpContext.Session.GetInt32("UserID") == null)
+                return RedirectPermanent("./login?referer=editor");
             if (!string.IsNullOrEmpty(Request.Query["ID"]))
             {
                 Festival = Festival.Read(int.Parse(Request.Query["ID"]));
             }
             else Festival = new Festival();
+            return Page();
         }
         public void OnPost()
         {

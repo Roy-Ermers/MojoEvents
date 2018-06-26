@@ -16,13 +16,14 @@
     <table class="interactive">
         <tr>
             <th>Festivallen</th>
+            <th></th>
             <th><a asp-page="./Editor" class="add-new">🞥</a></th>
         </tr>
         @foreach (Festival festival in Model.GetFestivals())
         {
             <tr>
                 <td><a asp-page="./Editor" asp-route-id="@festival.EventID">@festival.EventName</a></td>
-                <td><button name="delete" class="delete" value="@festival.EventID">Verwijder</button></td>
+                <td><a asp-page="./Editor" asp-route-id="@festival.EventID" class="edit">Verander</a></td><td><button name="delete" class="delete" value="@festival.EventID">Verwijder</button></td>
             </tr>
 
         }

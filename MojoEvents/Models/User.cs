@@ -45,7 +45,7 @@ namespace MojoEvents.Models
                         UserID = query.GetInt32(0),
                         UserName = query.GetString(1),
                         Password = query.GetString(2),
-                        OwnerID = query.GetInt32(4)
+                        OwnerID = query.GetInt32(3)
                     };
                     users.Add(user);
                 }

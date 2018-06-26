@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MojoEvents;
@@ -26,7 +27,12 @@ namespace MojoEvents.Pages
             result.Add(new Festival() { EventName = "(geen Festival gevonden)" });
             return result;
         }
-
+        public IActionResult OnGet()
+        {
+            if (Request.HttpContext.Session.GetInt32("UserID") == null)
+                return RedirectPermanent("./login");
+            return Page();
+        }
         public void OnPost()
         {
             if (!ModelState.IsValid)

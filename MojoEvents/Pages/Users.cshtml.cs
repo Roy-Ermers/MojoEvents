@@ -13,14 +13,18 @@ namespace MojoEvents.Pages
     public class UsersModel : PageModel
     {
         public List<User> Users { get; private set; }
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            if (Request.HttpContext.Session.GetInt32("UserID") == null) 
-                Response.Redirect("./login");
-            else if (HttpContext.Session.GetInt32("UserID") == 0)
-                Users = Models.User.Read();
+            if (Request.HttpContext.Session.GetInt32("UserID") == null)
+                return RedirectPermanent("./login");
             else
-                Users = Models.User.Read().FindAll(x => x.OwnerID == HttpContext.Session.GetInt32("UserID"));
+            {
+                if (Request.HttpContext.Session.GetInt32("UserID") == 0)
+                    Users = Models.User.Read();
+                else
+                    Users = Models.User.Read().FindAll(x => x.OwnerID == Request.HttpContext.Session.GetInt32("UserID"));
+            }
+            return Page();
         }
     }
 }

@@ -131,18 +131,21 @@ table {
     }
 
     table td {
-        flex: 1;
         padding: 10px 25px;
         text-align: left;
         vertical-align: middle;
+        text-align: right;
     }
 
+    table td:first-of-type {
+        flex: 1;
+        text-align: left;
+    }
     table.interactive tr:hover {
         background-color: rgba(0,0,0,2%);
     }
 
     table td:last-of-type {
-        text-align: right;
         flex: 0;
     }
 
@@ -194,6 +197,7 @@ input:not([type=button]):not([type=submit]) {
 }
 
 button {
+    display: inline-block;
     outline: none;
     text-align: center;
     border: none;
@@ -212,3 +216,21 @@ button {
 .delete {
     background-color: orangered;
 }
+
+.edit {
+    display: inline-block;
+    outline: none;
+    font-size: 13.3333px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 3px 10px;
+    margin: 0;
+    transition: filter 250ms ease-in-out;
+    background-color: deepskyblue;
+}
+
+    .edit:hover {
+        filter: saturate(75%);
+    }
