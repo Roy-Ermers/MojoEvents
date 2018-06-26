@@ -9,7 +9,7 @@ namespace MojoEvents.Models
     {
         public int UserID { get; set; }
         public string UserName { get; set; }
-        public byte[] Password { get; set; }
+        public string Password { get; set; }
         public int OwnerID { get; set; }
         public static User Read(int ID)
         {
@@ -20,7 +20,7 @@ namespace MojoEvents.Models
                 User user = new User();
                 user.UserID = query.GetInt32(0);
                 user.UserName = query.GetString(1);
-                user.Password = (byte[])query.GetValue(2);
+                user.Password = query.GetString(2);
                 user.OwnerID = query.GetInt32(3);
                 return user;
             }
@@ -44,7 +44,7 @@ namespace MojoEvents.Models
                     {
                         UserID = query.GetInt32(0),
                         UserName = query.GetString(1),
-                        Password = (byte[])query.GetValue(2),
+                        Password = query.GetString(2),
                         OwnerID = query.GetInt32(4)
                     };
                     users.Add(user);

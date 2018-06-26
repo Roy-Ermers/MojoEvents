@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home page";
     ViewData["CurrentPage"] = "home";
 }
-
+@using Microsoft.AspNetCore.Http;
 <h1>Mojo Events, DE manier om uw festival te promoten.</h1>
 <mojo-carrousel interval="5000">
     <img src="images/paaspop.jpg" bottom>
@@ -25,4 +25,5 @@
         Wij verwachten dat u deze pagina Goed gebruikt en niet onnodig informatie invutl op de pagina.<br />
         En wij verwachten dan ook dat u hier alleen kleinere festivallen hier promoot, geen bedrijven of producten.
     </p>
+    @HttpContext.Session.GetInt32("UserID")
 </div>

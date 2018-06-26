@@ -12,13 +12,17 @@ namespace MojoEvents.Pages
     {
         public void OnPost()
         {
-            string name         = Request.Form["UserName"];
-            string Password     = Request.Form["Password"];
+            string name = Request.Form["UserName"];
+            string Password = Request.Form["Password"];
 
-            var query = Sql.ScalarQuery($"SELECT UserID FROM BackUser WHERE UserName = '{name}' AND Password = PASSWORD('{Password}');");
-            if(query!=null)
+            var query = Sql.Query($"SELECT UserID FROM BackUser WHERE UserName = '{name}' AND PasswordHash = PASSWORD('{Password}');");
+
+            if (query.HasRows)
             {
-                Request.HttpContext.Session.SetInt32("UserID",(int)query);
+                query.Read();
+                var userID = query.GetInt32(0);
+                HttpContext.Session.SetInt32("UserID", userID);
+                Response.Redirect("./editor",true);
             }
             else
             {

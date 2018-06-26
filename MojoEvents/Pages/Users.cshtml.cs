@@ -15,7 +15,7 @@ namespace MojoEvents.Pages
         public List<User> Users { get; private set; }
         public void OnGet()
         {
-            if (HttpContext.Session.GetInt32("UserID") == null) 
+            if (Request.HttpContext.Session.GetInt32("UserID") == null) 
                 Response.Redirect("./login");
             else if (HttpContext.Session.GetInt32("UserID") == 0)
                 Users = Models.User.Read();

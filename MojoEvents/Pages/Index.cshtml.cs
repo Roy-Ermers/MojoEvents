@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Http;
 
 namespace MojoEvents.Pages
 {
@@ -11,7 +12,7 @@ namespace MojoEvents.Pages
     {
         public void OnGet()
         {
-
+            Sql.Query("INSERT INTO BackUser (UserName, PasswordHash, OwnerID) VALUES ('TestUser', PASSWORD('Wachtwoord'),1)");
         }
     }
 }

@@ -12,6 +12,7 @@ namespace MojoEvents
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string Location { get; set; }
+        public int Clicks { get; private set; }
         public decimal EntryPrice { get; set; }
         public string YoutubeVideo { get; set; }
         public string Image { get; set; }
@@ -48,8 +49,9 @@ namespace MojoEvents
                 result.Image = query.GetValue(6).ToString();
                 result.Info = query.GetValue(7)?.ToString();
                 result.Location = query.GetString(8);
-                result.Draft = query.GetBoolean(9);
-                result.OwnerID = query.GetInt32(10);
+                result.Clicks = query.GetInt32(9);
+                result.Draft = query.GetBoolean(10);
+                result.OwnerID = query.GetInt32(11);
 
                 return result;
             }

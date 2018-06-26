@@ -11,7 +11,7 @@
 {
     <p class="warning">@ViewData["Message"]</p>
 }
-<form method="post" action="~/Pages/InlogUsers.cshtml">
+<form method="post">
     <table>
         <tr>
             <th>Login</th>
@@ -22,7 +22,7 @@
                 Gebruikersnaam:
             </td>
             <td>
-                <input id="UserName" type="text" />
+                <input name="UserName" type="text" />
             </td>
         </tr>
         <tr>
@@ -30,7 +30,7 @@
                 Wachtwoord:
             </td>
             <td>
-                <input id="Password" type="password" />
+                <input name="Password" type="password" />
             </td>
         </tr>
         <tr>

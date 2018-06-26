@@ -1,5 +1,6 @@
-﻿$("#video").click(() => {
-$("#VideoSearch")[0].showModal();
+﻿// #region Videos
+$("#video").click(() => {
+    $("#VideoSearch")[0].showModal();
 });
 let Timeout;
 $("#SearchQuery").keydown(() => {
@@ -21,3 +22,12 @@ function ChooseVideo(id) {
     $("#VideoSearch")[0].close();
 }
 
+// #endregion
+
+$("#picture").click(() => {
+    $("#fileUpload").trigger("click");
+})
+
+$("#fileUpload").change(() => {
+
+})
