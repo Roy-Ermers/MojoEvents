@@ -26,7 +26,7 @@ namespace MojoEvents
             services.AddSession(options =>
             {
                 // Set a short timeout for easy testing.
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
                 options.Cookie.HttpOnly = true;
             });
 
@@ -45,10 +45,9 @@ namespace MojoEvents
             {
                 app.UseExceptionHandler("/Error");
             }
-            app.UseSession();
-
             app.UseStaticFiles();
-
+            app.UseCookiePolicy();
+            app.UseSession();
             app.UseMvc();
         }
     }

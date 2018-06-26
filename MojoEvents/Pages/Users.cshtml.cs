@@ -15,8 +15,8 @@ namespace MojoEvents.Pages
         public List<User> Users { get; private set; }
         public IActionResult OnGet()
         {
-            if (Request.HttpContext.Session.GetInt32("UserID") == null)
-                return RedirectPermanent("./login");
+            if (!HttpContext.Session.GetInt32("UserID").HasValue)
+                return Redirect("./login?referer=analytics");
             else
             {
                 if (Request.HttpContext.Session.GetInt32("UserID") == 0)

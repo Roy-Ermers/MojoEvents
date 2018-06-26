@@ -21,8 +21,8 @@ namespace MojoEvents.Pages
 
         public IActionResult OnGet()
         {
-            if (Request.HttpContext.Session.GetInt32("UserID") == null)
-                return RedirectPermanent("./login?referer=editor");
+            if (!HttpContext.Session.GetInt32("UserID").HasValue)
+                return Redirect("./login?referer=analytics");
             if (!string.IsNullOrEmpty(Request.Query["ID"]))
             {
                 Festival = Festival.Read(int.Parse(Request.Query["ID"]));

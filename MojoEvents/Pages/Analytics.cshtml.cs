@@ -12,9 +12,9 @@ namespace MojoEvents.Pages
     {
         public IActionResult OnGet()
         {
-            if (Request.HttpContext.Session.GetInt32("UserID") == null)
-                return RedirectPermanent("./login");
-            else return Page();
+            if (!HttpContext.Session.GetInt32("UserID").HasValue)
+                return Redirect("./login?referer=analytics");
+            return Page();
         }
     }
 }

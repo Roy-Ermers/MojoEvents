@@ -27,10 +27,12 @@ namespace MojoEvents.Pages
             result.Add(new Festival() { EventName = "(geen Festival gevonden)" });
             return result;
         }
+
         public IActionResult OnGet()
         {
-            if (Request.HttpContext.Session.GetInt32("UserID") == null)
-                return RedirectPermanent("./login");
+            if (!HttpContext.Session.GetInt32("UserID").HasValue)
+                return Redirect("./login?referer=festivals");
+
             return Page();
         }
         public void OnPost()

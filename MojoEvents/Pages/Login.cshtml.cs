@@ -10,6 +10,14 @@ namespace MojoEvents.Pages
 {
     public class InlogUsersModel : PageModel
     {
+        public void OnGet()
+        {
+            if (Request.Query.Keys.Contains("logout"))
+            {
+                HttpContext.Session.Remove("UserID");
+                ViewData["Message"] = "Sucessvol uitgelogd.";
+            }
+        }
         public void OnPost()
         {
             string name = Request.Form["UserName"];
@@ -22,7 +30,7 @@ namespace MojoEvents.Pages
                 query.Read();
                 var userID = query.GetInt32(0);
                 HttpContext.Session.SetInt32("UserID", userID);
-                Response.Redirect("./editor",true);
+                Response.Redirect("./" + (Request.Query["referer"].ToString() ?? "Users"), true);
             }
             else
             {
