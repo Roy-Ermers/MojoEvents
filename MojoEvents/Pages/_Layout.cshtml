@@ -22,14 +22,14 @@
     @if (ViewData["HideNav"] == null)
     {
         <nav>
-            <a asp-page="index" class="@(ViewData["CurrentPage"] == "home" ? "active" : "")">Home</a>
-            <a asp-page="festivals" class="@(ViewData["CurrentPage"] == "festivallen" ? "active" : "")">Festivals</a>
-            <a asp-page="Users" class="@(ViewData["CurrentPage"] == "users" ? "active" : "")">Users</a>
-            <a asp-page="Settings" class="@(ViewData["CurrentPage"] == "settings" ? "active" : "")">Settings</a>
-            <a asp-page="Analytics" class="@(ViewData["CurrentPage"] == "analytics" ? "active" : "")">Analytics</a>
+            <a asp-page="index" class="@((string)ViewData["CurrentPage"] == "home" ? "active" : "")">Home</a>
+            <a asp-page="festivals" class="@((string)ViewData["CurrentPage"] == "festivallen" ? "active" : "")">Festivals</a>
+            <a asp-page="Users" class="@((string)ViewData["CurrentPage"] == "users" ? "active" : "")">Users</a>
+            <a asp-page="Settings" class="@((string)ViewData["CurrentPage"] == "settings" ? "active" : "")">Settings</a>
+            <a asp-page="Analytics" class="@((string)ViewData["CurrentPage"] == "analytics" ? "active" : "")">Analytics</a>
             <div class="spacer"></div>
-            <a asp-page="Login" class="special">Logout</a>
-        </nav>
+            <a href="login@(Context.Session.Keys.Contains("UserID") ? "?logout" : "")" class="special">@(Context.Session.Keys.Contains("UserID") ? "Loguit" : "login")</a>
+</nav>
     }
     <main>
         @RenderBody()

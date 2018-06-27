@@ -8,29 +8,24 @@
 <h1>Sub-Users</h1>
 <hr />
 <p>Deze lijst bevat al uw sub-users, deze users kunnen vooraf bepaalde dingen aan uw festival veranderen.</p>
-
-<table>
-    <tr>
-        <th>
-            Gebruikers
-        </th>
-        <th/>
-    </tr>
-    @if (Model.Users != null)
-    {
-        @for(int i = 0; i < Model.Users.Count; i++)
+@if (!string.IsNullOrEmpty(Model.Message))
+{
+    <p class="warning">@Model.Message</p>
+}
+<form method="post">
+    <table class="interactive">
+        <tr>
+            <th>Gebruikers</th>
+            <th></th>
+            <th><a asp-page="./Editor" class="add-new">🞥</a></th>
+        </tr>
+        @foreach (Models.User User in Model.GetUsers())
         {
             <tr>
-                    <td>@Model.Users[i].UserName</td>
-                <td class="DropMenu">
-                    <img src="~/Images/DropDownIcon.png" id="Target" />
-                    <div>
-                        <div>
-                            <
-                        </div>
-                    </div>
-                </td>
+                <td><a asp-page="./Editor" asp-route-id="@User.UserID">@User.UserName</a></td>
+                <td></td>
             </tr>
+
         }
-    }
-</table>
+    </table>
+</form>
