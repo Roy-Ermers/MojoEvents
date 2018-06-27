@@ -12,7 +12,6 @@ namespace MojoEvents.Pages
     {
         public void OnGet()
         {
-            Sql.Query("INSERT INTO BackUser (UserName, PasswordHash, OwnerID) VALUES ('TestUser', PASSWORD('Wachtwoord'),1)");
         }
     }
 }

@@ -133,10 +133,11 @@ table {
         text-align: right;
     }
 
-    table td:first-of-type {
-        flex: 1;
-        text-align: left;
-    }
+        table td:first-of-type {
+            flex: 1;
+            text-align: left;
+        }
+
     table.interactive tr:hover {
         background-color: rgba(0,0,0,2%);
     }
@@ -230,3 +231,39 @@ button {
     .edit:hover {
         filter: saturate(75%);
     }
+
+select {
+    overflow-y: auto;
+}
+
+.dropdown {
+    display: flex;
+}
+
+    .dropdown > div {
+        flex: 1;
+        border-right: 3px solid var(--LogoColor);
+        padding: 0 20px;
+    }
+
+        .dropdown > div:last-of-type {
+            border-right: none;
+        }
+
+        .dropdown > div > p {
+            margin: 0;
+        }
+
+.buttonlist {
+    text-align: right;
+}
+
+    .buttonlist > button {
+        margin: 5px 0;
+    }
+
+canvas {
+    margin: 0 auto;
+    max-width: 500px;
+    max-height: 500px;
+}

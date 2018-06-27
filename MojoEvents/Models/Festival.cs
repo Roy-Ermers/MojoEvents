@@ -29,7 +29,7 @@ namespace MojoEvents
             }
             else
             {
-                Sql.Query($"UPDATE Festival SET FestivalName = '{EventName ?? " "}', StartDate = '{StartDate.ToShortDateString()}',EndDate = '{EndDate.ToShortDateString()}',Location = '{Location ?? ""}',EntryPrice = {EntryPrice},YoutubeVideo = '{YoutubeVideo ?? " "}',Image = '{Image ?? " "}',Info = '{Info ?? " "}',Draft = {Draft},OwnerID = {OwnerID} WHERE FestivalID = {EventID});");
+                Sql.Query($"UPDATE Festival SET FestivalName = '{EventName ?? " "}', StartDate = '{StartDate.ToShortDateString()}',EndDate = '{EndDate.ToShortDateString()}',Location = '{Location ?? ""}',EntryPrice = {EntryPrice},YoutubeVideo = '{YoutubeVideo ?? " "}',Image = '{Image ?? " "}',Info = '{Info ?? " "}',Draft = {Draft},OwnerID = {OwnerID} WHERE FestivalID = {EventID};");
 
             }
         }
@@ -56,6 +56,32 @@ namespace MojoEvents
                 return result;
             }
             else throw new NullReferenceException("Could not found " + ID);
+        }
+    
+        public static List<Festival> FromUsers(int UserID)
+        {
+            List<Festival> festivals = new List<Festival>();
+            var query = Sql.Query($"SELECT * FROM Festival WHERE OwnerID = {UserID};");
+            while(query.Read())
+            {
+                Festival result = new Festival
+                {
+                    EventID = query.GetInt32(0),
+                    EventName = query.GetString(1),
+                    StartDate = query.GetDateTime(2),
+                    EndDate = query.GetDateTime(3),
+                    EntryPrice = query.GetDecimal(4),
+                    YoutubeVideo = query.GetValue(5).ToString(),
+                    Image = query.GetValue(6).ToString(),
+                    Info = query.GetValue(7)?.ToString(),
+                    Location = query.GetString(8),
+                    Clicks = query.GetInt32(9),
+                    Draft = query.GetBoolean(10),
+                    OwnerID = query.GetInt32(11)
+                };
+                festivals.Add(result);
+            }
+            return festivals;
         }
     }
 }

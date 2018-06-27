@@ -5,6 +5,13 @@
     ViewData["CurrentPage"] = "users";
 }
 
+@{ 
+
+    foreach (Festival festival in Festival.FromUsers(HttpContext.Session.GetInt32("UserID").Value))
+    {
+        Model.FestivalOptions += $"<option value =\"{festival.EventID}\">{festival.EventName}</option>";
+    }
+}
 <h1>Sub-Users</h1>
 <hr />
 <p>Deze lijst bevat al uw sub-users, deze users kunnen vooraf bepaalde dingen aan uw festival veranderen.</p>
@@ -12,20 +19,53 @@
 {
     <p class="warning">@Model.Message</p>
 }
-<form method="post">
-    <table class="interactive">
-        <tr>
-            <th>Gebruikers</th>
-            <th></th>
-            <th><a asp-page="./Editor" class="add-new">🞥</a></th>
-        </tr>
-        @foreach (Models.User User in Model.GetUsers())
-        {
-            <tr>
-                <td><a asp-page="./Editor" asp-route-id="@User.UserID">@User.UserName</a></td>
-                <td></td>
-            </tr>
 
-        }
-    </table>
-</form>
+
+<table class="interactive" id="UserList">
+    <tr>
+        <th>Gebruikers</th>
+        <th></th>
+        <th><a class="add-new" id="AddNewUser">🞥</a></th>
+    </tr>
+    @foreach (Models.User User in Model.GetUsers())
+    {
+        <tr>
+            <td>
+                <a class="toggle-dropdown">@User.UserName</a>
+                <form method="post" class="dropdown" style="display: none;">
+                    <input type="hidden" name="UserID" value="@User.UserID" />
+                    <div>
+                        <label for="editFestival">Verander festival</label>
+                        <input type="checkbox" name="editFestival" checked="@User.Scopes?.HasFlag(UserScopes.EditFestival)" />
+                        <br />
+                        <label for="DeleteFestival">Verwijder festival</label>
+                        <input type="checkbox" checked="@User.Scopes?.HasFlag(UserScopes.DeleteFestival)" name="DeleteFestival" />
+                        <br />
+                        <label for="CreateFestival">festival aanmaken</label>
+                        <input type="checkbox" checked="@User.Scopes?.HasFlag(UserScopes.CreateFestival)" name="CreateFestival" />
+                    </div>
+                    <div>
+                        <p>Waarvan specifieke festivals:</p>
+                        <select size="4" multiple name="Festivals">
+                            @Html.Raw(Model.FestivalOptions)
+                        </select>
+                    </div>
+                    <div class="buttonlist">
+                        <button name="DeleteUser">Verwijder Gebruiker</button><br />
+                    </div>
+                </form>
+
+            </td>
+            <td></td>
+        </tr>
+    }
+    <tr style="display: none;">
+        <td>
+            <form asp-page-handler="Add" method="post" id="AddUser">
+                <input name="NewUser" type="text" placeholder="Gebruikersnaam">
+                <input name="NewPassword" type="password" placeholder="Wachtwoord">
+                <button>Toevoegen</button>
+            </form>
+            </td>
+    </tr>
+</table>

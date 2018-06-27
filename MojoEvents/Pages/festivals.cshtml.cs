@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MojoEvents;
+using MojoEvents.Models;
 namespace MojoEvents.Pages
 {
 
@@ -15,7 +16,10 @@ namespace MojoEvents.Pages
         public List<Festival> GetFestivals()
         {
             List<Festival> result = new List<Festival>();
-            var query = Sql.Query($"SELECT * FROM Festival;");
+            System.Data.DataTableReader query;
+            if (Scope.Read(HttpContext.Session.GetInt32("UserID").Value)?.HasFlag(UserScopes.SeeAllData) ?? false)
+                query = Sql.Query($"SELECT * FROM Festival;");
+            else query = Sql.Query($"SELECT * FROM Festival WHERE OwnerID = {HttpContext.Session.GetInt32("UserID").Value};");
             if (query.HasRows)
             {
                 while (query.Read())
@@ -24,7 +28,7 @@ namespace MojoEvents.Pages
                 }
                 return result;
             }
-            result.Add(new Festival() { EventName = "(geen Festival gevonden)" });
+            Message = "Geen Festivals gevonden.";
             return result;
         }
 
